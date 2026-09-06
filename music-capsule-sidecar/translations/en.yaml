@@ -1,0 +1,13 @@
+configuration:
+  server_url:
+    name: Server URL
+    description: Your Music Capsule server's address, scheme and host only, e.g. https://music.example.com.
+  token:
+    name: Token
+    description: Shared secret that authenticates the sidecar to your server. At least 32 characters, must match MUSIC_CAPSULE_SIDECAR_TOKEN on the server. Generate one with "openssl rand -hex 16".
+  proxy:
+    name: Proxy
+    description: Optional. http://, https://, socks5:// or socks5h:// proxy to route fetching import media through. Never used for the connection to your server.
+  allow_http:
+    name: Allow HTTP
+    description: Optional. Permit an http:// server URL, for LAN-only setups. Default off.

@@ -1,0 +1,23 @@
+# Music Capsule's import sidecar, packaged for Home Assistant.
+#
+# There is no Dockerfile here: the image is built and published by the Music
+# Capsule repository itself, and `version` below is the tag Home Assistant
+# pulls. It is rewritten by that repository's release workflow, so a new
+# Music Capsule release shows up here as an update by itself.
+name: Music Capsule Sidecar
+version: "0.0.0"
+slug: music_capsule_sidecar
+description: Runs Music Capsule's import sidecar on your home network
+url: https://github.com/georg-jung/georgs-ha-apps/blob/master/music-capsule-sidecar/DOCS.md
+arch:
+  - amd64
+image: ghcr.io/georg-jung/music-capsule-sidecar-hassio
+startup: services
+options:
+  server_url: null
+  token: null
+schema:
+  server_url: url
+  token: password
+  proxy: str?
+  allow_http: bool?
