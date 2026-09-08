@@ -5,7 +5,7 @@
 # pulls. It is rewritten by that repository's release workflow, so a new
 # Music Capsule release shows up here as an update by itself.
 name: Music Capsule Sidecar
-version: "1.1.76"
+version: "1.1.87"
 slug: music_capsule_sidecar
 description: Runs Music Capsule's import sidecar on your home network
 url: https://github.com/georg-jung/georgs-ha-apps/blob/master/music-capsule-sidecar/DOCS.md
