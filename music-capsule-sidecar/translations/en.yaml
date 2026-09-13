@@ -5,6 +5,9 @@ configuration:
   token:
     name: Token
     description: Shared secret that authenticates the sidecar to your server. At least 32 characters, must match MUSIC_CAPSULE_SIDECAR_TOKEN on the server. Generate one with "openssl rand -hex 16".
+  additional_server_urls:
+    name: Additional server URLs
+    description: Optional. Further Music Capsule servers this sidecar serves, in the same form as the server URL. They all use the token above, so each of those servers must be given the same MUSIC_CAPSULE_SIDECAR_TOKEN. At most 15.
   proxy:
     name: Proxy
     description: Optional. http://, https://, socks5:// or socks5h:// proxy to route fetching import media through. Never used for the connection to your server.

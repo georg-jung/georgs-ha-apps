@@ -32,7 +32,9 @@ rather than from the server.
 ```yaml
 server_url: https://music.example.com
 token: 0123456789abcdef0123456789abcdef
-# The two below are optional; leave them out unless you need them.
+# The ones below are optional; leave them out unless you need them.
+additional_server_urls:
+  - https://kids.example.com
 proxy: socks5://127.0.0.1:1080
 allow_http: false
 ```
@@ -41,8 +43,13 @@ allow_http: false
 | --- | --- | --- |
 | `server_url` | yes | Your Music Capsule server's address, scheme and host only, e.g. `https://music.example.com`. No path, no trailing slash. |
 | `token` | yes | Shared secret that authenticates the sidecar to your server. At least 32 characters, and must match `MUSIC_CAPSULE_SIDECAR_TOKEN` on the server. Generate one with `openssl rand -hex 16`. |
+| `additional_server_urls` | no | Further Music Capsule servers the same sidecar serves, each written like `server_url`. At most 15. All of them use `token`, so each of those servers needs the same `MUSIC_CAPSULE_SIDECAR_TOKEN`. |
 | `proxy` | no | An `http://`, `https://`, `socks5://` or `socks5h://` proxy URL. Only the fetch of import media is routed through it, never the connection to your server. |
 | `allow_http` | no | Permit an `http://` `server_url`, for LAN-only setups. Defaults to `false`, which requires HTTPS. |
+
+With additional servers, every server is served at the same time rather
+than in turn, so a long import into one does not hold up the others. Each
+server's Import view shows the sidecar as connected on its own.
 
 Any data the sidecar writes is scratch space only. It is swept at every
 start, so there is nothing to back up.
