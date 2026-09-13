@@ -16,8 +16,11 @@ startup: services
 options:
   server_url: null
   token: null
+  additional_server_urls: []
 schema:
   server_url: url
   token: password
+  additional_server_urls:
+    - url
   proxy: str?
   allow_http: bool?
